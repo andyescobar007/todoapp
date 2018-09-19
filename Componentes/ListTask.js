@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-export default class All extends React.Component {
+export default class ListTask extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -20,7 +20,7 @@ export default class All extends React.Component {
           name="check-square"
           size={20}
           backgroundColor="transparent"
-          color="#694fad"
+          color="#025df9"
           borderRadius={0}
           onPress={this.handleToggle}
         />
@@ -31,7 +31,7 @@ export default class All extends React.Component {
           name="square"
           size={20}
           backgroundColor="transparent"
-          color="#694fad"
+          color="#025df9"
           borderRadius={0}
           onPress={this.handleToggle}
         />
@@ -49,6 +49,14 @@ export default class All extends React.Component {
       >
         {icon}
         <Text>{this.props.task.todo}</Text>
+        <Icon.Button
+          name="trash"
+          size={20}
+          backgroundColor="transparent"
+          color="#694fad"
+          borderRadius={0}
+          onPress={this.handleDelete}
+        />
         
       </View>
     );
