@@ -7,35 +7,19 @@ import {
 } from 'react-native';
 import { createDrawerNavigator, createStackNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
-import NoticiasScreen from '../NoticiasScreen/NoticiasScreen';
-import AcercaDeScreen from '../AcercaDe/AcercaDe';
-import TenerifeDesdeArribaScreen from '../TenerifeDesdeArribaScreen/TenerifeDesdeArribaScreen';
-import IglesiasTabPage from '../IglesiasTabPage/IglesiasTabPage';
-import AliadosScreen from '../AliadosScreen/AliadosScreen';
-import ContactosScreen from '../ContactosScreen/ContactosScreen';
-import GaleriaScreen from '../GaleriaScreen';
-import VideosScreen from '../VideosScreen/VideosScreen';
+
 import PostsList from '../posts/PostList';
-import GalleryScreen from '../GalleryScreen';
+
+import Add from '../Add';
+import All from '../All';
+import Done from '../Checked';
 
 
-
-//Creo el componente el posts
-
-/*const Posts = ()=> (
-    <View style={{flex: 1}}>
-    
-    <PostsList />
-    </View>
-);*/
-
-// Creo el menu
-//Primero la seccion de noticias
-const NoticiasStack = createStackNavigator({
-    Noticias: {
-        screen: PostsList,
+const TodoStack = createStackNavigator({
+    TodoTask: {
+        screen: All,
         navigationOptions: ({navigation}) => ({
-            title: "Noticias",
+            title: "Todo Task",
             headerLeft: <Text>    <Icon name="md-menu"
                                         size={35}
                                         color="#FFF"
@@ -45,22 +29,15 @@ const NoticiasStack = createStackNavigator({
             headerTintColor: 'white'
         })
     }
-    /*Posts: {
-        screen: ({ navigation }) => <IglesiasTabPage screenProps={{ rootNavigation: navigation }}/>,
-        navigationOptions: () => ({
-            title: "Posts",
-            headerStyle: {backgroundColor: '#E73536'},
-            headerTintColor: 'white'
-        })
-    }*/
+    
 });
 
 //Creo el AcercaDe
-const AcercaDeStack = createStackNavigator({
+const DoneStack = createStackNavigator({
     AcercaDe: {
-        screen: AcercaDeScreen,
+        screen: Done,
         navigationOptions: ({navigation}) => ({
-            title: "Acerca de",
+            title: "Done",
             headerLeft: <Text>    <Icon name="md-menu"
                                         size={35}
                                         color="#FFF"
@@ -70,15 +47,6 @@ const AcercaDeStack = createStackNavigator({
             headerTintColor: 'white'
         })
     },
-    TenerifeDesdeArriba: {
-        screen: TenerifeDesdeArribaScreen,
-        navigationOptions: () => ({
-            title: "Tenerife desde arriba",
-            headerStyle: {backgroundColor: '#E73536'},
-            headerTintColor: 'white'
-        })
-
-    }
 });
 
 //galeria
@@ -189,11 +157,11 @@ const ContactosStack = createStackNavigator({
 
 
 const DrawerRaiz = createDrawerNavigator({
-    Noticias: {
-        screen: NoticiasStack
+    TodoTask: {
+        screen: TodoStack
     },
     AcercaDe: {
-        screen: AcercaDeStack
+        screen: DoneStack
     },
     Galeria: {
         screen: GaleriaStack
@@ -208,7 +176,7 @@ const DrawerRaiz = createDrawerNavigator({
         screen: ContactosStack
     },
 }, {
-    drawerBackgroundColor: '#E73536',
+    drawerBackgroundColor: '#c4c2c2',
     contentOptions: {
         activeTintColor: 'white'
     }
